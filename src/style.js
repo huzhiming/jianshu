@@ -55,5 +55,19 @@ html {
   box-sizing: inherit;
 }
 
+@font-face {
+  font-family: 'iconfont';  /* project id 913571 */
+  src: url('//at.alicdn.com/t/font_913571_u30z5utunz8.eot');
+  src: url('//at.alicdn.com/t/font_913571_u30z5utunz8.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_913571_u30z5utunz8.woff') format('woff'),
+  url('//at.alicdn.com/t/font_913571_u30z5utunz8.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_913571_u30z5utunz8.svg#iconfont') format('svg');
+}
+.iconfont{
+	font-family:"iconfont" !important;
+	font-size:16px;font-style:normal;
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-stroke-width: 0.2px;
+	-moz-osx-font-smoothing: grayscale;}
 
 `;
