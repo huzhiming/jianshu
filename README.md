@@ -1,44 +1,95 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### git提交日志规范
+1. feat：新功能（feature）
 
-## Available Scripts
+2. fix：修补bug
 
-In the project directory, you can run:
+3. docs：文档（documentation）
 
-### `npm start`
+4. style： 不影响代码运行的变动（css，空格，格式，缺少分号等）
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+5. refactor：重构（即不是新增功能，也不是修改bug的代码变动）
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+6. test：增加测试
 
-### `npm test`
+7. chore：构建过程或辅助工具的变动，对构建过程或辅助工具和库（如文档生成）的更改 
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+8. build： 源码构建配置文件的变动
 
-### `npm run build`
+9. test： 添加缺失或更正现有测试 ，单元（集成）测试的源码提交
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+10. revert:   代码还原的变动
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+11. ci:   持续集成工具的变动
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+12. perf:   代码更改可提高性能，软件性能分析工具的变动
 
-### `npm run eject`
+  [^可单个或多个标识组合使用：]: 例：fix+style(*): 修改了去除定位偏移的bug+背景样式修改
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+**scope**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+用于说明 commit 影响的范围，比如数据层、控制层、视图层等等，视项目不同而不同，逗号分隔。
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+1. 说明哪个模块受到影响，子模块斜杠分割，多个模块逗号分隔。
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+   例：feat(品牌大全/列表页，新机大全/详情页，某个模块名)：添加xxx
 
-## Learn More
+   例：feat(.eslintrc.js,某个单文件文件名)：更新xx配置
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+2. 当更改影响多个范围时，您可以使用*。 
+   *例：feat(*\*):  更新远端dev仓库代码
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**subject**
+
+是 commit 目的的简短描述，不超过50个字符。
+
+> 开头请使用： 添加xxx  移出(清空)xxx  升级(更新)xxx  覆盖xxx 改变xxx 切换xxx为xxx  修复xxx 
+
+1. 以动词开头，使用第一人称现在时，比如change，而不是changed或changes
+2. 第一个字母小写
+3. 结尾不加句号（.）
+
+
+这个项目是用[Create React App]（https://github.com/facebook/create-react-app）引导的。
+
+##可用的脚本
+
+在项目目录中，您可以运行：
+
+###`npm start`
+
+在开发模式下运行应用程序。<br>
+打开[http：// localhost：3000]（http：// localhost：3000）以在浏览器中查看它。
+
+如果您进行编辑，页面将重新加载。<br>
+您还将在控制台中看到任何lint错误。
+
+###`npm test`
+
+以交互式监视模式启动测试运行器。<br>
+有关详细信息，请参阅有关[运行测试]（https://facebook.github.io/create-react-app/docs/running-tests）的部分。
+
+###`npm run build`
+
+将生产应用程序构建到`build`文件夹。<br>
+它正确地将React捆绑在生产模式中并优化构建以获得最佳性能。
+
+构建被缩小，文件名包含哈希
+您的应用已准备好部署！
+
+有关详细信息，请参阅有关[部署]（https://facebook.github.io/create-react-app/docs/deployment）的部分。
+
+###`npm run eject`
+
+**注意：这是单向操作。一旦你'弹出'，你就不能回去！**
+
+如果您对构建工具和配置选择不满意，可以随时“弹出”。此命令将从项目中删除单个构建依赖项。
+
+相反，它会将所有配置文件和传递依赖项（Webpack，Babel，ESLint等）复制到项目中，以便您可以完全控制它们。除`eject`之外的所有命令仍然可以工作，但它们将指向复制的脚本，以便您可以调整它们。在这一点上，你是独立的。
+
+你不必使用`eject`。精选功能集适用于中小型部署，您不应觉得有义务使用此功能。但是，我们知道如果您准备好它时无法自定义此工具将无用。
+
+＃＃ 学到更多
+
+您可以在[Create React App documentation]（https://facebook.github.io/create-react-app/docs/getting-started）中了解更多信息。
+
+要了解React，请查看[React documentation]（https://reactjs.org/）。
