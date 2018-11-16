@@ -1,4 +1,4 @@
-### git提交日志规范2
+### git提交日志规范
 1. feat：新功能（feature）
 
 2. fix：修补bug
