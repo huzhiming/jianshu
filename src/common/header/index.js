@@ -12,6 +12,7 @@ import {
   NavSearch,
   SearchInfo,
   SearchInfoTitle,
+  SearchInfoItem,
   SearchInfoSwitch,
   Addition,
   Button
@@ -47,9 +48,15 @@ const Header = (props)=> {
               <SearchInfoTitle>
                 热门搜索
                 <SearchInfoSwitch>
-                  换一换
+                  换一批
                 </SearchInfoSwitch>
               </SearchInfoTitle>
+              <ul>
+                <SearchInfoItem>行距杯</SearchInfoItem>
+                <SearchInfoItem>行距杯</SearchInfoItem>
+                <SearchInfoItem>行距杯</SearchInfoItem>
+                <SearchInfoItem>行距杯</SearchInfoItem>
+              </ul>
             </SearchInfo>
           </SearchWrapper>
         </Nav>

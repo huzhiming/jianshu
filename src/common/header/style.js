@@ -103,21 +103,59 @@ export const SearchInfo = styled.div`
   left: 0;
   top: 56px;
   width: 240px;
-  height:100px;
+  min-height:100px;
   padding: 0 20px;
   box-shadow: 0 0 8px rgba(0, 0, 0, .2);
+  background: #fff;
+  border-radius: 4px;
+  &::before {
+    content: "";
+    left: 27px;
+    width: 14px;
+    height: 14px;
+    transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    top: -5px;
+    z-index: -1;
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0 0 8px rgba(0,0,0,.2)
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 12px solid transparent;
+    border-bottom-color: #fff;
+    left: 20px;
+    bottom: 98%;
+  }
 `
 
 export const SearchInfoTitle = styled.div`
   margin-top: 20px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   line-height: 20px;
   font-size: 14px;
   color: #969696;
 `;
 
-export const SearchInfoSwitch = styled.div`
+export const SearchInfoSwitch = styled.span`
+  float: right;
+  font-size: 13px;
 
+`;
+
+export const SearchInfoItem = styled.li`
+  display: inline-block;
+  margin: 0 10px 10px 0;
+  padding: 2px 6px;
+  border: 1px solid #ddd;
+  font-size: 12px;
+  color: #787878;
+  border-radius: 3px
 `;
 
 
