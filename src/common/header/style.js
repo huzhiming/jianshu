@@ -139,23 +139,30 @@ export const SearchInfoTitle = styled.div`
   margin-bottom: 10px;
   line-height: 20px;
   font-size: 14px;
-  color: #969696;
+  color: #333;
 `;
 
 export const SearchInfoSwitch = styled.span`
   float: right;
   font-size: 13px;
-
+  cursor: pointer;
 `;
 
-export const SearchInfoItem = styled.li`
-  display: inline-block;
+export const SearchInfoList = styled.div`
+  overflow: hidden;
+`
+
+export const SearchInfoItem = styled.a`
+  display: block;
+  float: left;
+  line-height: 20px;
+  padding: 0 5px;
   margin: 0 10px 10px 0;
-  padding: 2px 6px;
-  border: 1px solid #ddd;
   font-size: 12px;
-  color: #787878;
-  border-radius: 3px
+  border: 1px solid #ddd;
+  color: #333;
+  border-radius: 3px;
+  cursor: pointer;
 `;
 
 

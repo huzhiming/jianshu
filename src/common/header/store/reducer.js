@@ -5,16 +5,21 @@ import { fromJS } from 'immutable';// immutable 创建不可更改的对象
 
 // 利用 immutable 库创建不可更改的对象（immutable对象）
 const defaultState = fromJS({
-  focused: false
+  focused: false,
+  list: []
 });
 
 export default (state=defaultState,action) => {
-  if (action.type===constants.SEARCH_FOCUS) {
-    // 结合之前的数据，生成新的数据
-    return state.set('focused',true);
+  switch (action.type) {
+    case constants.SEARCH_FOCUS:
+      // 结合之前的数据，生成新的数据
+      return state.set('focused',true);
+    case constants.SEARCH_BLUR:
+      return state.set('focused',true);
+    case constants.CHANGE_LIST:
+      // action.data 是一个immutable 对象，不可更改。
+      return state.set('list',action.data);
+    default:
+      return state;
   }
-  if (action.type===constants.SEARCH_BLUR) {
-    return state.set('focused',false);
-  }
-  return state;
 }
