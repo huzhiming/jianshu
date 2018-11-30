@@ -1,0 +1,55 @@
+import React, { Component, Fragment } from 'react';
+import { connect } from 'react-redux';
+import { actionCreators } from '../store'
+
+import {
+  RecommendWrapper,
+  RecommendItem,
+  DownloadWrapper,
+  HoverWrapper,
+} from '../style'
+class Recommend extends Component {
+  render() {
+    const { handleMouseEnter, handleMouseLeave, mouseIn } = this.props;
+    return (
+      <Fragment>
+        <RecommendWrapper>
+          <RecommendItem imgUrl='./images/banner-s-3-7123fd94750759acf7eca05b871e9d17.png'/>
+          <RecommendItem imgUrl='./images/banner-s-4-b70da70d679593510ac93a172dfbaeaa.png'/>
+          <RecommendItem imgUrl='./images/banner-s-7-1a0222c91694a1f38e610be4bf9669be.png'/>
+          <RecommendItem imgUrl='./images/banner-s-5-4ba25cf5041931a0ed2062828b4064cb.png'/>
+          <RecommendItem imgUrl='./images/banner-s-6-c4d6335bfd688f2ca1115b42b04c28a7.png'/>
+        </RecommendWrapper>
+        <DownloadWrapper onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+          <HoverWrapper show={mouseIn}>
+            <img src="./images/download-index-side-qrcode-cb13fc9106a478795f8d10f9f632fccf.png" alt="" className="qrcode"/>
+          </HoverWrapper>
+          <img src="./images/download-index-side-qrcode-cb13fc9106a478795f8d10f9f632fccf.png" alt="" className="qrcode"/>
+          <div className="info">
+            <div className="title">下载简书手机App ></div>
+            <div className="desc">随时随地发现和创作内容</div>
+          </div>
+        </DownloadWrapper>
+      </Fragment>
+    )
+  }
+}
+
+const mapStateToProps = (state)=>{
+  return {
+    mouseIn: state.getIn(['home','mouseIn']),
+  }
+}
+
+const mapDispatchToProps = (dispatch)=>{
+  return {
+    handleMouseEnter() {
+      dispatch(actionCreators.mouseEnter());
+    },
+    handleMouseLeave() {
+      dispatch(actionCreators.mouseLeave());
+    },
+  }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(Recommend);

@@ -141,20 +141,20 @@ const mapStateToProps = (state)=>{
   }
 }
 
-const mapDispathToProps = (dispath)=>{
+const mapDispatchToProps = (dispatch)=>{
   return {
     handleInputFocus(list) {
-      list.size===0&&dispath(actionCreators.getlist());
-      dispath(actionCreators.searchFocus());
+      list.size===0&&dispatch(actionCreators.getlist());
+      dispatch(actionCreators.searchFocus());
     },
     handleInputBlur() {
-      dispath(actionCreators.searchBlur());
+      dispatch(actionCreators.searchBlur());
     },
     handleMouseEnter() {
-      dispath(actionCreators.mouseEnter());
+      dispatch(actionCreators.mouseEnter());
     },
     handleMouseLeave() {
-      dispath(actionCreators.mouseLeave());
+      dispatch(actionCreators.mouseLeave());
     },
     handleChangePage(page,totalPage,spin) {
       let originAngle = spin.style.transform.replace(/[^0-9]/ig,'');
@@ -167,13 +167,13 @@ const mapDispathToProps = (dispath)=>{
       spin.style.transform = `rotate(${originAngle + 360}deg)`;
 
       if (page < totalPage) {
-        dispath(actionCreators.changePage(page+1));
+        dispatch(actionCreators.changePage(page+1));
       } else {
-        dispath(actionCreators.changePage(1));
+        dispatch(actionCreators.changePage(1));
       }
     },
     
   }
 }
 
-export default connect(mapStateToProps,mapDispathToProps)(Header);
+export default connect(mapStateToProps,mapDispatchToProps)(Header);

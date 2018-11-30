@@ -1,7 +1,7 @@
 import * as constants from './constants'
 import { fromJS } from 'immutable';// immutable 创建不可更改的对象
 
-//immutable对象获取 xx.get('key')  immutable对象设置 xx.set('key','value')
+//immutable对象获取 xx.get('key')  immutable对象设置 xx.set('key','value') xx.merge({})
 
 // 利用 immutable 库创建不可更改的对象（immutable对象）
 const defaultState = fromJS({
