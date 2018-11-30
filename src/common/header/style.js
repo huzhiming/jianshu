@@ -15,7 +15,6 @@ export const Logo = styled.a.attrs({
   display: block;
   width: 100px;
   height: 56px;
-  border-bottom: 1px solid #f0f0f0;
   background: url(${logoPic});
   background-size: contain;
 `
@@ -47,7 +46,7 @@ export const SearchWrapper = styled.div`
   position: relative; 
   float: left;
 
-  .iconfont {
+  .zoom {
     display: inline-block;
     position: absolute;
     right: 5px;
@@ -145,7 +144,15 @@ export const SearchInfoTitle = styled.div`
 export const SearchInfoSwitch = styled.span`
   float: right;
   font-size: 13px;
+  color: #999;
   cursor: pointer;
+  .spin {
+    display: inline-block;
+    font-size: 12px;
+    margin-right: 2px;
+    transition: all .2s ease-in;
+    transform-origin: center;
+  }
 `;
 
 export const SearchInfoList = styled.div`

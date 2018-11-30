@@ -3,7 +3,8 @@ import { fromJS } from 'immutable';// immutable 创建不可更改的对象
 import axios from 'axios';
 const changeList = (data)=>({
   type: constants.CHANGE_LIST,
-  data: fromJS(data)
+  data: fromJS(data),
+  totalPage: Math.ceil(data.length / 10)
 });
 
 // 单独抽成文件，增加代码可维护性，对自动化测试有利
@@ -13,6 +14,18 @@ export const searchFocus = ()=>({
 
 export const searchBlur = ()=>({
   type: constants.SEARCH_BLUR
+});
+
+export const mouseEnter = ()=>({
+  type: constants.MOUSE_ENTER
+});
+
+export const mouseLeave = ()=>({
+  type: constants.MOUSE_LEAVE
+});
+export const changePage = (page)=>({
+  type: constants.CHANGE_PAGE,
+  page
 });
 
 // 获取热门搜索列表
