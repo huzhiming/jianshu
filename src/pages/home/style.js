@@ -145,7 +145,7 @@ export const HoverWrapper = styled.div`
   border: 1px solid #ddd;
   border-radius: 4px;
   background: #fff;
-  box-shadow: 0 4px 14px rgba(0,0,0,.2);  
+  box-shadow: 0 4px 14px rgba(0,0,0,.2);
   transition: opacity .5s ease-in-out;
   .qrcode {
     width: 100%;
@@ -157,7 +157,7 @@ export const HoverWrapper = styled.div`
     border-width: 14px 14px 14px 14px;
     border-style:solid;
     border-color: #ddd transparent transparent transparent;
-    
+
     position:absolute;
     left:40%;
     top:100%;
@@ -199,6 +199,96 @@ export const SearchInfoSwitch = styled.span`
     transform-origin: center;
   }
 `;
+
+
+
+
+export const WriterInfoList = styled.ul`
+
+`;
+
+export const WriterInfoItem = styled.li`
+  display: flex;
+  align-items: center;
+  font-size:14px;
+  margin-bottom: 10px;
+  .info {
+    flex-grow: 1;
+    flex-shrink: 1;
+    color: #333;
+  }
+  .nickName {
+    margin-bottom: 10px;
+  }
+  .count {
+    font-size: 12px;
+    color: #999;
+  }
+  .attention {
+    align-self: flex-start;
+    color: #42c02e;
+  }
+`;
+
+export const Avatar = styled.img.attrs({
+  ...(props)=>(props)
+})`
+  width: 48px;
+  height: 48px;
+  border-radius: 48px;
+  margin-right: 10px;
+`;
+
+export const InfoMoreButtonBlock = styled.a`
+  display: none;
+  width: 280px;
+  padding: 7px 7px 7px 12px;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 13px;
+  background: #f7f7f7;
+  color: #787878;
+  &.show {
+    display: block;
+  }
+`;
+
+// export const TopicItem = styled.div``;
+
+// export const TopicItem = styled.div``;
+
+// export const TopicItem = styled.div``;
+
+// export const TopicItem = styled.div``;
+
+// export const TopicItem = styled.div``;
+
+// export const TopicItem = styled.div``;
+
+// export const TopicItem = styled.div``;
+
+// export const TopicItem = styled.div``;
+
+// export const TopicItem = styled.div``;
+
+// export const TopicItem = styled.div``;
+
+// export const TopicItem = styled.div``;
+
+// export const TopicItem = styled.div``;
+
+// export const TopicItem = styled.div``;
+
+// export const TopicItem = styled.div``;
+
+// export const TopicItem = styled.div``;
+
+// export const TopicItem = styled.div``;
+
+// export const TopicItem = styled.div``;
+
+// export const TopicItem = styled.div``;
 
 // export const TopicItem = styled.div``;
 

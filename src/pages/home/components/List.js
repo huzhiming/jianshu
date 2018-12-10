@@ -32,16 +32,12 @@ class List extends Component {
   }
 }
 
-const mapStateToProps = (state)=>{
-  return {
-    list: state.getIn(['home','articleList'])
-  }
-};
+const mapStateToProps = ( state ) => ( {
+  list: state.getIn( ['home', 'articleList'] )
+});
 
-const mapDispatchToProps = (dispatch)=>{
-  return {
+const mapDispatchToProps = (dispatch)=>({
 
-  }
-}
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(List);

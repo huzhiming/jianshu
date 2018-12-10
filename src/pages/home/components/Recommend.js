@@ -10,15 +10,16 @@ import {
 } from '../style'
 class Recommend extends Component {
   render() {
-    const { handleMouseEnter, handleMouseLeave, mouseIn } = this.props;
+    const { handleMouseEnter, handleMouseLeave, list, mouseIn } = this.props;
+
     return (
       <Fragment>
         <RecommendWrapper>
-          <RecommendItem imgUrl='./images/banner-s-3-7123fd94750759acf7eca05b871e9d17.png'/>
-          <RecommendItem imgUrl='./images/banner-s-4-b70da70d679593510ac93a172dfbaeaa.png'/>
-          <RecommendItem imgUrl='./images/banner-s-7-1a0222c91694a1f38e610be4bf9669be.png'/>
-          <RecommendItem imgUrl='./images/banner-s-5-4ba25cf5041931a0ed2062828b4064cb.png'/>
-          <RecommendItem imgUrl='./images/banner-s-6-c4d6335bfd688f2ca1115b42b04c28a7.png'/>
+          {
+            list.map((item) => (
+              <RecommendItem key={item.get('id')} imgUrl={item.get('imgUrl')} />
+            ))
+          }
         </RecommendWrapper>
         <DownloadWrapper onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
           <HoverWrapper show={mouseIn}>
@@ -35,11 +36,10 @@ class Recommend extends Component {
   }
 }
 
-const mapStateToProps = (state)=>{
-  return {
-    mouseIn: state.getIn(['home','mouseIn']),
-  }
-}
+const mapStateToProps = (state)=>({
+  list: state.getIn( ['home','recommendList'] ),
+  mouseIn: state.getIn( ['home', 'mouseIn'] )
+})
 
 const mapDispatchToProps = (dispatch)=>{
   return {
