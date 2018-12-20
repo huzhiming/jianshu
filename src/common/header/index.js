@@ -1,12 +1,13 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { CSSTransition } from 'react-transition-group';
 import { actionCreators } from './store'
 
-import { 
-  HeaderWrapper, 
-  Logo, 
-  Nav, 
+import {
+  HeaderWrapper,
+  Logo,
+  Nav,
   NavItem,
   SearchWrapper,
   NavSearch,
@@ -58,7 +59,9 @@ class Header extends Component {
     return (
       <Fragment>
         <HeaderWrapper>
-          <Logo />
+          <Link to='/'>
+            <Logo />
+          </Link>
           <Nav>
             <NavItem className="left active">首页</NavItem>
             <NavItem className="left">下载App</NavItem>
@@ -70,13 +73,13 @@ class Header extends Component {
                 timeout={200}
                 classNames="slide"
               >
-                <NavSearch 
+                <NavSearch
                   className={focused?'focused':''}
                   onFocus={()=>handleInputFocus(list)}
                   onBlur={handleInputBlur}
                 ></NavSearch>
               </CSSTransition>
-              <i 
+              <i
                 className={focused?'focused iconfont zoom':'iconfont zoom'}
               >&#xe60c;</i>
               { this.getListArea(this.props) }
@@ -109,13 +112,13 @@ class Header extends Component {
 //               timeout={200}
 //               classNames="slide"
 //             >
-//               <NavSearch 
+//               <NavSearch
 //                 className={props.focused?'focused':''}
 //                 onFocus={props.handleInputFocus}
 //                 onBlur={props.handleInputBlur}
 //               ></NavSearch>
 //             </CSSTransition>
-//             <i 
+//             <i
 //               className={props.focused?'focused iconfont':'iconfont'}
 //             >&#xe60c;</i>
 //             { getListArea(props.focused) }
@@ -163,7 +166,7 @@ const mapDispatchToProps = (dispatch)=>{
       } else {
         originAngle = 0;
       }
-      
+
       spin.style.transform = `rotate(${originAngle + 360}deg)`;
 
       if (page < totalPage) {
@@ -172,7 +175,7 @@ const mapDispatchToProps = (dispatch)=>{
         dispatch(actionCreators.changePage(1));
       }
     },
-    
+
   }
 }
 

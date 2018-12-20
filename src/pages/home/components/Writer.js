@@ -16,42 +16,44 @@ class Writer extends Component {
     const { list } = this.props;
     // const newList = list.
     return (
-      <WriterWrapper>
-        <SearchInfoTitle>
-          推荐作者
-          <SearchInfoSwitch>
-            <i ref={(icon)=>{this.spinIcon = icon}} className="iconfont spin">&#xe851;</i>换一批
-          </SearchInfoSwitch>
-          {/* <SearchInfoSwitch onClick={()=>{handleChangePage(page,totalPage,this.spinIcon)}}>
-            <i ref={(icon)=>{this.spinIcon = icon}} className="iconfont spin">&#xe851;</i>换一批
-          </SearchInfoSwitch> */}
-        </SearchInfoTitle>
+      <Fragment>
+        <WriterWrapper>
+          <SearchInfoTitle>
+            推荐作者
+            <SearchInfoSwitch>
+              <i ref={(icon)=>{this.spinIcon = icon}} className="iconfont spin">&#xe851;</i>换一批
+            </SearchInfoSwitch>
+            {/* <SearchInfoSwitch onClick={()=>{handleChangePage(page,totalPage,this.spinIcon)}}>
+              <i ref={(icon)=>{this.spinIcon = icon}} className="iconfont spin">&#xe851;</i>换一批
+            </SearchInfoSwitch> */}
+          </SearchInfoTitle>
 
-        <WriterInfoList>
-          {
-            list.map((item,index)=>{
-              return item.size>5?(
-                <WriterInfoItem key={item.get('id')}>
-                  <Avatar src={item.get('imgUrl')}></Avatar>
-                  <div className="info">
-                    <p className="nickName">
-                      {item.get('title')}
-                    </p>
-                    <p className="count">写了{item.get('wordCount')}字 · {item.get('likeCount')}喜欢</p>
-                  </div>
-                  <span className="attention">
-                    <i className="iconfont"></i>
-                    + 关注
-                  </span>
-                </WriterInfoItem>
-              ): null
-            })
-          }
-        </WriterInfoList>
-        <InfoMoreButtonBlock className={list.size>5?'show':''}>
-          查看更多 >
-        </InfoMoreButtonBlock>
-      </WriterWrapper>
+          <WriterInfoList>
+            {
+              list.map((item,index)=>{
+                return item.size>5?(
+                  <WriterInfoItem key={item.get('id')}>
+                    <Avatar src={item.get('imgUrl')}></Avatar>
+                    <div className="info">
+                      <p className="nickName">
+                        {item.get('title')}
+                      </p>
+                      <p className="count">写了{item.get('wordCount')}字 · {item.get('likeCount')}喜欢</p>
+                    </div>
+                    <span className="attention">
+                      <i className="iconfont"></i>
+                      + 关注
+                    </span>
+                  </WriterInfoItem>
+                ): null
+              })
+            }
+          </WriterInfoList>
+          <InfoMoreButtonBlock className={list.size>5?'show':''}>
+            查看更多 >
+          </InfoMoreButtonBlock>
+        </WriterWrapper>
+      </Fragment>
     )
   }
 }

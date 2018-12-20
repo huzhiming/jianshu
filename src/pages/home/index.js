@@ -1,19 +1,25 @@
-import React, { Component, Fragment} from 'react';
+// PureComponent 内置了性能调优(shouldComponentUpdate),需配合immutable对象一起使用 利用 immutable 库创建不可更改的对象（immutable对象）
+import React, { PureComponent,Fragment} from 'react';
 import { connect } from 'react-redux';
+import { actionCreators } from './store'
 import Topic from './components/Topic';
 import Recommend from './components/Recommend';
 import List from './components/List';
 import Writer from './components/Writer';
-import axios from 'axios';
+
 import {
   HomeWrapper,
   HomeLeft,
   HomeRight,
-
+  BackTop
 } from './style';
 
 
-class Home extends Component {
+class Home extends PureComponent {
+
+  handleScrollTop() {
+    window.scrollTo(0,0);
+  }
   render(){
     return (
       <Fragment>
@@ -28,27 +34,42 @@ class Home extends Component {
             <Writer />
           </HomeRight>
         </HomeWrapper>
-      </Fragment> 
+        {
+          this.props.showScroll?<BackTop onClick={this.handleScrollTop}>顶部</BackTop>:null
+        }
+      </Fragment>
     )
   }
 
-  componentDidMount() {
-    axios.get('/api/home.json')
-    .then((res)=>{
-      const result = res.data.data;
-      const action = { type: 'change_home_data', ...result };
-      console.log(action);
-      
-      this.props.changeHomeData( action );
-    });
+  bindEvents() {
+    window.addEventListener('scroll',this.props.changeScrollToShow)
   }
+  componentDidMount() {
+    this.props.changeHomeData();
+    this.bindEvents();
+  }
+  componentWillUnmount() {
+    window.removeEventListener('scroll',this.props.changeScrollToShow)
+  }
+
 }
 
+const mapState = (state)=>({
+  showScroll: state.getIn(['home','showScroll'])
+})
 
 const mapDispatch = (dispatch)=>({
-  changeHomeData(action) {
-    dispatch( action );
+  changeHomeData() {
+    const action = actionCreators.getlist();
+    dispatch(action);
+  },
+  changeScrollToShow(e) {
+    if (document.documentElement.scrollTop>400) {
+      dispatch(actionCreators.toggleTopShow(true));
+    } else {
+      dispatch(actionCreators.toggleTopShow(false));
+    }
   }
 });
 
-export default connect( null, mapDispatch )(Home);
+export default connect( mapState, mapDispatch )(Home);
