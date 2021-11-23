@@ -6,9 +6,7 @@ export const HeaderWrapper = styled.div`
   height: 58px;
   border-bottom: 1px solid #f0f0f0;
 `
-export const Logo = styled.a.attrs({
-  href: '/'
-})`
+export const Logo = styled.div`
   position: absolute;
   top: 0;
   left: 0;
@@ -43,7 +41,7 @@ export const NavItem = styled.div`
 `
 
 export const SearchWrapper = styled.div`
-  position: relative; 
+  position: relative;
   float: left;
 
   .zoom {

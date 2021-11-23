@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { PureComponent, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { actionCreators } from '../store'
 
@@ -8,7 +8,7 @@ import {
   DownloadWrapper,
   HoverWrapper,
 } from '../style'
-class Recommend extends Component {
+class Recommend extends PureComponent {
   render() {
     const { handleMouseEnter, handleMouseLeave, list, mouseIn } = this.props;
 

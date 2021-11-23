@@ -1,4 +1,4 @@
-import React, { Component, Fragment} from 'react';
+import React, { PureComponent, Fragment} from 'react';
 import { connect } from 'react-redux'
 import { actionCreators } from '../store'
 import {
@@ -11,7 +11,7 @@ import {
   InfoMoreButtonBlock
 } from '../style'
 
-class Writer extends Component {
+class Writer extends PureComponent {
   render() {
     const { list } = this.props;
     // const newList = list.

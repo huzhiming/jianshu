@@ -7,14 +7,12 @@ const changeHomeData = (data)=>({
   ...data
 });
 
-export const getlist = () => {
-  return (dispatch) =>{
-    axios.get('/api/home.json')
-    .then((res)=>{
-      const action = changeHomeData(res.data.data);
-      dispatch(action);
-    });
-  }
+export const getlist = () => (dispatch) =>{
+  axios.get('/api/home.json')
+  .then((res)=>{
+    const action = changeHomeData(res.data.data);
+    dispatch(action);
+  });
 }
 
 const addHomeList = (list,nextPage)=>({
